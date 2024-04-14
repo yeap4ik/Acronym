@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Guessing Game</title>
+</head>
+
+<body>
+
+    <script>
+        function explainAcronym(acronym) {
+            const Translations = { //deklarējam masīvu ar zināmajiem akronīmiem
+                A: ["asprātīgs", "aunt", "apodziņš"],
+                B: ["bērns", "bārda", "bumbieris"],
+                S: ["students", "superīši", "sieriņš"],
+                P: ["papīrs", "pūce", "pūkains"],
+                O: ["ozols", "oāze", "oktobris"],
+                Z: ["zirgs", "zāle", "zābaks"],
+                T: ["tētis", "tēja", "tulpe"]
+            };
+
+            let explanation = "";
+            for (let i = 0; i < acronym.length; i++) {
+                const letter = acronym[i].toUpperCase();
+                if (Translations.hasOwnProperty(letter)) {
+                    const printtranslation = Translations[letter];
+                    const randomIndex = Math.floor(Math.random() * 3); // lai izvads neatkartotos un būtu pēc nejaušības principa
+                    explanation += printtranslation[randomIndex] + " ";
+                } else {
+                    explanation += "N/A ";
+                }
+            }
+
+            console.log(explanation.trim());
+        }
+
+        //Ievadam vārdu
+
+        explainAcronym("ZAP");
+
+    </script>
+</body>
+</html>
